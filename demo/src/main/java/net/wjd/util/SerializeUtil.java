@@ -31,6 +31,10 @@ public class SerializeUtil {
      * @param bytes
      */
     public static Object unserialize(byte[] bytes) {
+    	
+    	if(bytes==null)
+    		return null;
+    	
         ByteArrayInputStream bais = null;
         try {
             // ∑¥–Ú¡–ªØ

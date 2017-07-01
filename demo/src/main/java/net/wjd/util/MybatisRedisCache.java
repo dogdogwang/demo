@@ -31,7 +31,8 @@ public class MybatisRedisCache implements Cache {
 	}
 
 	public Object getObject(Object key) {
-		Object value = SerializeUtil.unserialize(RedisUtil.getJedis().get(SerializeUtil.serialize(key.toString())));
+		byte[] bytes = RedisUtil.getJedis().get(SerializeUtil.serialize(key.toString()));
+		Object value = SerializeUtil.unserialize(bytes);
 		logger.debug(">>>>>>>>>>>>>>>>>>>>>>>>getObject:"+key+"="+value);
 		return value;
 	}
